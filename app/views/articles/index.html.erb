@@ -13,7 +13,7 @@
 <% @articles.each do |article| %>
   <tr>
     <td><%= article.name %></td>
-    <td><%= article.article %></td>
+    <td><%= simple_format(article.article) %></td>
     <td><%= article.created_at.strftime('%Y年%m月%d日 %H:%M:%S') %></td>
     <td><%= link_to '編集', edit_article_path(article) %></td>
     <td><%= link_to '削除', article, method: :delete, data: { confirm: '削除しますか？' } %></td>
