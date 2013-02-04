@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     @articles = Article.all
+    @article = Article.new
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,7 +45,7 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.save
-        format.html { redirect_to @article, notice: 'Article was successfully created.' }
+        format.html { redirect_to :action => "index" }
         format.json { render json: @article, status: :created, location: @article }
       else
         format.html { render action: "new" }
